@@ -1,0 +1,18 @@
+p {
+    display: flex;
+    justify-content: space-between;
+}
+
+label {
+    font-size: 14px;
+    margin-right: 0.5rem;
+}
+
+input {
+    font-size: 14px;
+    width: 5em;
+    height: 2em;
+    border-radius: 8px;
+    padding: 0px 8px;
+    border: 1px solid black;
+}
