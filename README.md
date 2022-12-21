@@ -11,4 +11,3 @@ This project is built with React and Typescript, with Zustand as state-managemen
 # Improvements:
 * Tried to implement tests for custom hook and store, but got TypeError. Thus, I left the testing for hooks and store logic. 
 * I am open to learn advanced unit and integration testing as it will not take a lot of time to learn.
-* Add Popups on Markers in Map for UX.
