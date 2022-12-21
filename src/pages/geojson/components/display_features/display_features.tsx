@@ -1,5 +1,5 @@
 import useGeoJsonData from "../../hooks/useGeoJsonData"
-import { MapContainer, GeoJSON, TileLayer } from 'react-leaflet'
+import { MapContainer, GeoJSON, TileLayer, } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import useGeoJsonStore from "../../store/useGeoJsonStore"
 import L from "leaflet"
@@ -31,6 +31,13 @@ const DisplayGeoJsonFeatures = () => {
             return L.marker(latlng, { icon: customMarker });
         };
 
+        const onEachFeature = (feature: any, layer: L.Layer) => {
+            if (feature.properties) {
+            const user = feature.properties.user; // displaying user on popup as relevant info not exposed in object 
+            layer.bindPopup(`${user}`);
+            }
+        }
+
         return(
             <MapContainer 
                 style={{height: '100vh'}} 
@@ -42,7 +49,7 @@ const DisplayGeoJsonFeatures = () => {
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 />
                 
-                <GeoJSON data={mapData} pointToLayer={setIcon} />
+                <GeoJSON data={mapData} pointToLayer={setIcon} onEachFeature={onEachFeature} />
             </MapContainer>
         )
     }
